@@ -10,9 +10,11 @@
   <li>
     <%= product.photo %>
     <%= product.name %>
-    <!--  <%= product.bookings.status %>
-          <%= product.bookings.startdate %>
-          <%= product.bookings.enddate %> -->
+    <%= product.bookings.startdate %>
+    <%= product.bookings.enddate %>
+    <%= product.bookings.status %>
+    <%= link_to 'Confirm booking', edit_booking_path(@booking), method: :patch %>
+
   </li>
   <% end %>
 </ul>

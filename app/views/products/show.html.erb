@@ -1,20 +1,28 @@
-<%= @product.name %>
-
-<body>
-    <button class="btn btn-outline-primary show-back-button">
-        <a href="">Back</a>
-      </button>
-    <img src="https://usa-grlk5lagedl.stackpathdns.com/production/usa/images/1549322778313491-ariana-grande-bstg-2018-billboard-u-1548.jpg?w=1920&amp;h=800&amp;fit=clip&amp;crop=faces&amp;fm=pjpg&amp;auto=compress", alt="Ariana" width="250" height="200">
+<#%= @product.name %>
 
 
-    <p>Rented by <span><%= @product.user.email %></span></p>
-        <p> <i class="fas fa-map-marker"></i> <%= @product.city %></p>
-        <span><i class="fas fa-clock"></i> <%= @product.price %>$/hour</span>
-    <h4>SkillSets</h4>
-        <% @product.skills.each do |skill| %>
-        <p><%= skill.name %></p>
-        <% end %>
+<div class="container">
 
-<input type="submit" name="commit" value="Create Booking" disabled="disabled" class="btn btn btn-primary" data-disable-with="Create Booking">
+  <div style="padding-bottom:70px">
+    <button class="btn waves-effect waves-light" type="submit" name="action" id='submit-btn'>Go Back!
+    </button>
+  </div>
+  <img src="https://usa-grlk5lagedl.stackpathdns.com/production/usa/images/1549322778313491-ariana-grande-bstg-2018-billboard-u-1548.jpg?w=1920&amp;h=800&amp;fit=clip&amp;crop=faces&amp;fm=pjpg&amp;auto=compress", alt="profile" class="profile-photo">
 
-</body>
+  <div>
+    <p>Presented by <span><#%= @product.user.email %></span></p>
+    <p> <i class="fas fa-map-marker"></i> <#%= @product.city %></p>
+    <span><i class="fas fa-clock"></i> <#%= @product.price %>$/hour</span>
+
+      <div class="skills-description">
+        <h4>SkillSets</h4>
+        <#% @product.skills.each do |skill| %>
+            <p><#%= skill.name %></p>
+        <#% end %>
+      </div>
+  </div>
+  <%= render "products/rocketbutton" %>
+  <%= link_to "hidden", new_product_booking_path(@product), id: "product-booking-new", style: "display: none;" %>
+</div>
+
+

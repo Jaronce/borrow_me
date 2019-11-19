@@ -1,39 +1,28 @@
 <#%= @product.name %>
-<head>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-</head>
 
-<body>
+
 <div class="container">
 
   <div style="padding-bottom:70px">
     <button class="btn waves-effect waves-light" type="submit" name="action" id='submit-btn'>Go Back!
     </button>
   </div>
-        </button>
-        <img src="https://usa-grlk5lagedl.stackpathdns.com/production/usa/images/1549322778313491-ariana-grande-bstg-2018-billboard-u-1548.jpg?w=1920&amp;h=800&amp;fit=clip&amp;crop=faces&amp;fm=pjpg&amp;auto=compress", alt="Ariana" width="250" height="200">
+  <img src="https://usa-grlk5lagedl.stackpathdns.com/production/usa/images/1549322778313491-ariana-grande-bstg-2018-billboard-u-1548.jpg?w=1920&amp;h=800&amp;fit=clip&amp;crop=faces&amp;fm=pjpg&amp;auto=compress", alt="profile" class="profile-photo">
 
-        <div>
-            <p>Rented by <span><#%= @product.user.email %></span></p>
-                <p> <i class="fas fa-map-marker"></i> <#%= @product.city %></p>
-                <span><i class="fas fa-clock"></i> <#%= @product.price %>$/hour</span>
+  <div>
+    <p>Presented by <span><#%= @product.user.email %></span></p>
+    <p> <i class="fas fa-map-marker"></i> <#%= @product.city %></p>
+    <span><i class="fas fa-clock"></i> <#%= @product.price %>$/hour</span>
 
-                <div class="skills-description">
-                     <h4>SkillSets</h4>
-                        <#% @product.skills.each do |skill| %>
-                         <p><#%= skill.name %></p>
-                        <#% end %>
-                </div>
-        </div>
-</div>
-
-  <div style="padding-bottom:70px">
-    <button class="btn waves-effect waves-light" type="submit" name="action" id='submit-btn'>Book Me Now
-        <i class="material-icons right">send</i>
-    </button>
+      <div class="skills-description">
+        <h4>SkillSets</h4>
+        <#% @product.skills.each do |skill| %>
+            <p><#%= skill.name %></p>
+        <#% end %>
+      </div>
   </div>
-  
+  <%= render "products/rocketbutton" %>
+  <%= link_to "hidden", product_bookings_path(@product), id: "product-booking-create", method: :post, style: "display: none;" %>
 </div>
 
-</body>
+

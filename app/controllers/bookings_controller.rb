@@ -5,7 +5,7 @@ class BookingsController < ApplicationController
   end
 
   def create
-
+    raise
   end
 #UPDATE STATUS-----------------------------------
   def update

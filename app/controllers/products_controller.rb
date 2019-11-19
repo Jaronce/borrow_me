@@ -1,4 +1,7 @@
 class ProductsController < ApplicationController
+  def show
+    @product = Product.first
+  end
   def index
     @products = Product.all
   end
@@ -15,5 +18,7 @@ class ProductsController < ApplicationController
   end
 
   def destroy
+
   end
+
 end

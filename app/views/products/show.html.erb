@@ -1,0 +1,20 @@
+<%= @product.name %>
+
+<body>
+    <button class="btn btn-outline-primary show-back-button">
+        <a href="">Back</a>
+      </button>
+    <img src="https://usa-grlk5lagedl.stackpathdns.com/production/usa/images/1549322778313491-ariana-grande-bstg-2018-billboard-u-1548.jpg?w=1920&amp;h=800&amp;fit=clip&amp;crop=faces&amp;fm=pjpg&amp;auto=compress", alt="Ariana" width="250" height="200">
+
+
+    <p>Rented by <span><%= @product.user.email %></span></p>
+        <p> <i class="fas fa-map-marker"></i> <%= @product.city %></p>
+        <span><i class="fas fa-clock"></i> <%= @product.price %>$/hour</span>
+    <h4>SkillSets</h4>
+        <% @product.skills.each do |skill| %>
+        <p><%= skill.name %></p>
+        <% end %>
+
+<input type="submit" name="commit" value="Create Booking" disabled="disabled" class="btn btn btn-primary" data-disable-with="Create Booking">
+
+</body>

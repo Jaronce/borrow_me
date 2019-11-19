@@ -1,12 +1,15 @@
 class ProductsController < ApplicationController
 #READ-------------------------------------------
+
+  def index
+    # @products = Product.all
+    @products = Skill.find_by(name: params[:skill]).products
+  end
+
   def show
     @product = Product.find(params[:id])
   end
 
-  def index
-    @products = Product.all
-  end
 #CREATE-----------------------------------------
   def new
     @product = Product.new

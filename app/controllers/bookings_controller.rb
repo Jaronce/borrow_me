@@ -1,5 +1,5 @@
 class BookingsController < ApplicationController
-#CREATE-----------------------------------------
+
   def new
     @booking = Booking.new
   end
@@ -7,7 +7,7 @@ class BookingsController < ApplicationController
   def create
 
   end
-#UPDATE STATUS-----------------------------------
+
   def update
 
   end

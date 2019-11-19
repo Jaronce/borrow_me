@@ -1,2 +1,57 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/background.png);">
+  <div class="container">
+
+
+    <% if user_signed_in? %>
+      <h1>Hello,<strong><%= current_user.email %></strong></h1>
+      <p>Are you looking for skills you don't have? Let's borrow it.</p>
+    <% else %>
+      <h1>Hello, what you want to borrow?</h1>
+      <p>Are you looking for skills you don't have? Let's borrow it.</p>
+    <% end %>
+
+  </div>
+</div>
+
+
+<div class="cards">
+  <div class="row">
+    <div class="col-6">
+
+      <%= link_to products_path do %>
+        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), :height=>500 %>)">
+          <p> Random </p>
+        </div>
+      <% end %>
+
+      <!--       <% @skills.each do |skill| %>
+              <%= link_to product_path(skill) do %>
+                <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= cl_image_path co.photo, :height=>500, :gravity=>"auto", :crop=>"thumb" %>)">
+                  <p><%= skill.name %></p>
+                </div>
+              <% end %>
+            <% end %>
+       -->
+
+    </div>
+  </div>
+</div>
+
+
+
+<div class="cards">
+  <div class="row">
+    <div class="col-6">
+
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+

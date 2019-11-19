@@ -1,18 +1,19 @@
 <h1>current_user.name</h1>
 
 <img src="https://www.biography.com/.image/ar_1:1%2Cc_fill%2Ccs_srgb%2Cg_face%2Cq_auto:good%2Cw_300/MTE5NTU2MzE2NDE4MzExNjkx/jackie-chan-9542080-1-402.jpg">
-<!-- <img src="@user.photo" alt="profile photo"> -->
 
 <h3>Your Human's Bookings</h3>
 <%= link_to "Add a Human", new_product_path %>
+
 <ul>
   <% current_user.products.each do |product| %>
   <li>
     <%= product.photo %>
     <%= product.name %>
-    <!--  <%= product.bookings.status %>
-          <%= product.bookings.startdate %>
-          <%= product.bookings.enddate %> -->
+    <%= product.bookings.startdate %>
+    <%= product.bookings.enddate %>
+    <%= product.bookings.status %>
+    <%= link_to 'Confirm booking', edit_booking_path(@booking), method: :patch %>
   </li>
   <% end %>
 </ul>

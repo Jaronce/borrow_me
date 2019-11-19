@@ -1,8 +1,9 @@
+<% mens = @products.where({gender: "male"}).first(3) %>
+<% womens = @products.where({gender: "female"}).first(3) %>
+
 
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/background.png);">
   <div class="container">
-
-
     <% if user_signed_in? %>
       <h1>Hello,<strong><%= current_user.email %></strong></h1>
       <p>Are you looking for skills you don't have? Let's borrow it.</p>
@@ -10,41 +11,50 @@
       <h1>Hello, what you want to borrow?</h1>
       <p>Are you looking for skills you don't have? Let's borrow it.</p>
     <% end %>
-
   </div>
 </div>
 
-
 <div class="cards">
   <div class="row">
-    <div class="col-6">
-
-      <%= link_to products_path do %>
-        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), :height=>500 %>)">
-          <p> Random </p>
-        </div>
+      <% @skills.each do |skill| %>
+        <%= link_to products_path(skill: skill.name) do %>
+          <div class="col card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3))">
+            <p><%= skill.name.capitalize %></p>
+          </div>
+        <% end %>
       <% end %>
-
-      <!--       <% @skills.each do |skill| %>
-              <%= link_to product_path(skill) do %>
-                <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= cl_image_path co.photo, :height=>500, :gravity=>"auto", :crop=>"thumb" %>)">
-                  <p><%= skill.name %></p>
-                </div>
-              <% end %>
-            <% end %>
-       -->
-
     </div>
   </div>
 </div>
 
 
+<div class="cards">
+  <div class="row">
+    <div class="col-4">
+
+      <% mens.each do |product| %>
+        <%= link_to product_path(product) do %>
+          <div class="col card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3))">
+            <p><%= product.name %></p>
+          </div>
+        <% end %>
+      <% end %>
+
+    </div>
+  </div>
+</div>
 
 <div class="cards">
   <div class="row">
-    <div class="col-6">
+    <div class="col-4">
 
-
+      <% womens.each do |product| %>
+        <%= link_to product_path(product) do %>
+          <div class="col card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3))">
+            <p><%= product.name %></p>
+          </div>
+        <% end %>
+      <% end %>
 
     </div>
   </div>

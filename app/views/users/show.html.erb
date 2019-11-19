@@ -4,6 +4,7 @@
 <!-- <img src="@user.photo" alt="profile photo"> -->
 
 <h3>Your Human's Bookings</h3>
+<%= link_to "Add a Human", new_product_path %>
 <ul>
   <% current_user.products.each do |product| %>
   <li>

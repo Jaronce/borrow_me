@@ -1,1 +1,32 @@
-<h1>Hello</h1>
+<div class="container">
+  <div class="banner-content">
+    <h1>Product page</h1>
+  </div>
+  <div class="row">
+    <h2>Category</h2>
+      <li></li>
+  </div>
+  <div class="row">
+    <h2>Top 3 Men</h2>
+    <% @products.each do |product| %>
+      <div class="">
+        <% if products.photo? %>
+          <% url photo %>
+        <% else %>
+          <% photo %>
+        <% end %>
+      <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= background_url %>');">
+          <div class="card-description">
+            <h2><%= product.name %></h2>
+          </div>
+          <%= link_to "", product_path(product), class: 'card-link' %>
+        </div>
+      </div>
+  </div>
+  <div class="row">
+    <h2>Top 3 Women</h2>
+    <%= product.photo %>
+    <%= product.name %>
+    <%= skill.name %>
+  </div>
+</div>

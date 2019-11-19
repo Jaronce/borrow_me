@@ -1617,6 +1617,11 @@ chalk@^1.1.1:
     strip-ansi "^3.0.0"
     supports-color "^2.0.0"
 
+charming@^3.0.1:
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/charming/-/charming-3.0.1.tgz#19298a9184bc0be3d33968bc7ad047700ef874fb"
+  integrity sha512-5HNYG6p6MHG66qa3Lu6i0NfHBMPu5QyM7NJRHmZUJ4w/qZmkaFnXKH8A0/KNfN7kd0VQSbAS7JiIlem7qq2Urw==
+
 chokidar@^2.0.2, chokidar@^2.1.8:
   version "2.1.8"
   resolved "https://registry.yarnpkg.com/chokidar/-/chokidar-2.1.8.tgz#804b3a7b6a99358c3c5c61e71d8728f041cff917"

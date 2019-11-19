@@ -1,8 +1,8 @@
 class PagesController < ApplicationController
 
   def home
-    @products = Product.all
     @skills = Skill.all
+    @products = Product.all
   end
 
 end

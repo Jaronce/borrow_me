@@ -1,5 +1,5 @@
 class BookingsController < ApplicationController
-#CREATE-----------------------------------------
+
   def new
     @booking = Booking.new
     @product = Product.find(params[:product_id])
@@ -17,7 +17,8 @@ class BookingsController < ApplicationController
       render :new
     end
   end
-#UPDATE STATUS-----------------------------------
+  
+  
   def edit
     @booking = Booking.find(params[:booking_id])
   end
@@ -27,7 +28,6 @@ class BookingsController < ApplicationController
 
   end
 
-#EXTRA-------------------------------------------
   private
   def booking_params
     params.require(:booking).permit(:status, :startdate, :enddate, :product_id)

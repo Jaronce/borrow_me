@@ -1,32 +1,23 @@
 <div class="container">
-  <div class="banner-content">
-    <h1>Product page</h1>
-  </div>
-  <div class="row">
-    <h2>Category</h2>
-      <li></li>
-  </div>
-  <div class="row">
-    <h2>Top 3 Men</h2>
+ <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1551218808-94e220e084d2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80)">
+  Cooking
+</div>
+  <div class="card-product">
+    <h2>Cooking</h2>
     <% @products.each do |product| %>
-      <div class="">
-        <% if products.photo? %>
-          <% url photo %>
-        <% else %>
-          <% photo %>
-        <% end %>
-      <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= background_url %>');">
-          <div class="card-description">
-            <h2><%= product.name %></h2>
-          </div>
+      <div class="card-product">
+        <img src='https://www.indiewire.com/wp-content/uploads/2019/07/shutterstock_10312373e.jpg?w=780' />
+        <div class="card-product">
           <%= link_to "", product_path(product), class: 'card-link' %>
         </div>
       </div>
+
+      <% end %>
+      </div>
   </div>
-  <div class="row">
-    <h2>Top 3 Women</h2>
-    <%= product.photo %>
-    <%= product.name %>
-    <%= skill.name %>
-  </div>
+
 </div>
+
+
+
+

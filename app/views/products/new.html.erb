@@ -1,0 +1,9 @@
+<h1>New Human!</h1>
+
+<%= simple_form_for(@product) do |f| %>
+  <%= f.input :name%>
+  <%= f.input :photo %>
+  <%= f.association :skill %>
+  <%= f.input :photo_cache, as: :hidden %>
+  <%= f.submit class: "btn btn-primary"%>
+<% end %>

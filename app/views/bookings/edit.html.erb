@@ -1,3 +1,8 @@
 <h1>CONFIRM OR REFUSE</h1>
 
-<p>BUTTON CONFIRM</p><%= link_to , %>
+
+
+<%= simple_form_for(@booking) do |f| %>
+  <%= f.input :status%>
+  <%= f.submit class: "btn btn-primary"%>
+<% end %>

@@ -15,10 +15,10 @@
 </div>
 
 
-<div class="flex-container">
+<div class="container">
   <h3> Skill you can choose </h3>
-  <div class="cards">
-    <div class="row">
+  <div class="cat-cards">
+    <!-- <div class="row"> -->
         <% @skills.each do |skill| %>
           <%= link_to products_path(skill: skill.name) do %>
             <div class="col card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3))">
@@ -26,7 +26,7 @@
             </div>
           <% end %>
         <% end %>
-      </div>
+      <!-- </div> -->
     </div>
   </div>
 </div>

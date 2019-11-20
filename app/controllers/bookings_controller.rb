@@ -11,7 +11,7 @@ class BookingsController < ApplicationController
     @booking.user = current_user
     if @booking.save
       flash[:notice] = "Thank you for booking me!"
-      redirect_to user_path(current_user)
+      redirect_to users_show_path
     else
       render :new
     end

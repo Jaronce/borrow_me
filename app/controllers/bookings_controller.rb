@@ -1,5 +1,4 @@
 class BookingsController < ApplicationController
-
   def new
     @booking = Booking.new
     @product = Product.find(params[:product_id])
@@ -17,8 +16,8 @@ class BookingsController < ApplicationController
       render :new
     end
   end
-  
-  
+
+
   def edit
     @booking = Booking.find(params[:booking_id])
   end

@@ -6,22 +6,22 @@ Product.destroy_all
 Skill.destroy_all
 ProductSkill.destroy_all
 
-user_1 = User.new(email: "owner@mail.com", password: "123456", remote_photo_url: "https://www.indiewire.com/wp-content/uploads/2019/07/shutterstock_10312373e.jpg?w=780" )
+user_1 = User.new(email: "owner@mail.com", password: "123456", remote_photo_url: "https://images.unsplash.com/photo-1503066211613-c17ebc9daef0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80" )
 user_1.save!
 
-product_1 = Product.create!(user: user_1, name: "Harry", gender: "male", remote_photo_url: "https://unsplash.com/photos/sYhUhse5uT8")
-product_2 = Product.create!(user: user_1, name: "Emma", gender: "female", remote_photo_url: "https://unsplash.com/photos/THIs-cpyebg")
-product_3 = Product.create!(user: user_1, name: "Mike", gender: "male", remote_photo_url: "https://unsplash.com/photos/sYhUhse5uT8")
+product_1 = Product.create!(user: user_1, name: "Harry", price: 200, city: "Montreal", gender: "male", remote_photo_url: "https://images.unsplash.com/photo-1552642986-ccb41e7059e7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80")
+product_2 = Product.create!(user: user_1, name: "Emma", price: 300, city: "LA", gender: "female", remote_photo_url: "https://images.unsplash.com/photo-1500522144261-ea64433bbe27?ixlib=rb-1.2.1&auto=format&fit=crop&w=1351&q=80")
+product_3 = Product.create!(user: user_1, name: "Mike", price: 100, city: "Toronto", gender: "male", remote_photo_url: "https://images.unsplash.com/photo-1552642986-ccb41e7059e7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80")
 
-user_2 = User.new(email: "owner2@mail.com", password: "123456", remote_photo_url: "https://www.indiewire.com/wp-content/uploads/2019/07/shutterstock_10312373e.jpg?w=780" )
+user_2 = User.new(email: "owner2@mail.com", password: "123456", remote_photo_url: "https://images.unsplash.com/photo-1497752531616-c3afd9760a11?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80" )
 user_2.save!
 
-user_3 = User.new(email: "borrower@mail.com", password: "123456", remote_photo_url: "https://www.indiewire.com/wp-content/uploads/2019/07/shutterstock_10312373e.jpg?w=780" )
+user_3 = User.new(email: "borrower@mail.com", password: "123456", remote_photo_url: "https://images.unsplash.com/photo-1530126483408-aa533e55bdb2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=802&q=80" )
 user_3.save!
 
-product_4 = Product.create!(user: user_2, name: "Lynn", gender: "female", remote_photo_url: "https://unsplash.com/photos/THIs-cpyebg")
-product_5 = Product.create!(user: user_2, name: "Tom", gender: "male", remote_photo_url: "https://unsplash.com/photos/sYhUhse5uT8")
-product_6 = Product.create!(user: user_2, name: "May", gender: "female", remote_photo_url: "https://unsplash.com/photos/THIs-cpyebg")
+product_4 = Product.create!(user: user_2, name: "Lynn", price: 200, city: "Seoul", gender: "female", remote_photo_url: "https://images.unsplash.com/photo-1500522144261-ea64433bbe27?ixlib=rb-1.2.1&auto=format&fit=crop&w=1351&q=80")
+product_5 = Product.create!(user: user_2, name: "Tom", price: 400, city: "Paris", gender: "male", remote_photo_url: "https://images.unsplash.com/photo-1552642986-ccb41e7059e7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80")
+product_6 = Product.create!(user: user_2, name: "May", price: 600, city: "London", gender: "female", remote_photo_url: "https://images.unsplash.com/photo-1500522144261-ea64433bbe27?ixlib=rb-1.2.1&auto=format&fit=crop&w=1351&q=80")
 
 skill_1 = Skill.create!(name: "massage")
 skill_2 = Skill.create!(name: "cooking")

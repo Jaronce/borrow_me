@@ -1,9 +1,9 @@
 
 p "Starting seeds"
-User.destroy_all
 Product.destroy_all
 Skill.destroy_all
 ProductSkill.destroy_all
+User.destroy_all
 
 user_1 = User.new(email: "owner@mail.com", password: "123456", remote_photo_url: "https://images.unsplash.com/photo-1503066211613-c17ebc9daef0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80" )
 user_1.save!
@@ -30,6 +30,7 @@ skill_5 = Skill.create!(name: "driving")
 skill_6 = Skill.create!(name: "language")
 skill_7 = Skill.create!(name: "clubbing")
 skill_8 = Skill.create!(name: "coding")
+
 product_skill_1 = ProductSkill.new
 product_skill_1.product = product_1
 product_skill_1.skill = skill_1
@@ -54,6 +55,7 @@ product_skill_6 = ProductSkill.new
 product_skill_6.product = product_6
 product_skill_6.skill = skill_6
 product_skill_6.save!
+
 booking_1 = Booking.new(status: true)
 booking_1.product = product_1
 booking_1.user = user_3
@@ -62,4 +64,5 @@ booking_2 = Booking.new
 booking_2.product = product_2
 booking_2.user = user_3
 booking_2.save
+
 p "Seed done"

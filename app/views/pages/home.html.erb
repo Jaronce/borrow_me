@@ -5,11 +5,11 @@
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/background.png);">
   <div class="container">
     <% if user_signed_in? %>
-      <h1>Hello,<strong><%= current_user.email %></strong></h1>
-      <p>Are you looking for skills you don't have? Let's borrow it.</p>
+      <h1>Hello, <strong><%= current_user.email.split("@")[0].capitalize %> :D</strong></h1>
+      <p>Are you looking for skills you don't have? Let's borrow it!</p>
     <% else %>
       <h1>Hello, what you want to borrow?</h1>
-      <p>Are you looking for skills you don't have? Let's borrow it.</p>
+      <p>Are you looking for skills you don't have? Let's borrow it!</p>
     <% end %>
   </div>
 </div>

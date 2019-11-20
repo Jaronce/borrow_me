@@ -1,6 +1,5 @@
 
 p "Starting seeds"
-
 User.destroy_all
 Product.destroy_all
 Skill.destroy_all
@@ -31,49 +30,36 @@ skill_5 = Skill.create!(name: "driving")
 skill_6 = Skill.create!(name: "language")
 skill_7 = Skill.create!(name: "clubbing")
 skill_8 = Skill.create!(name: "coding")
-
 product_skill_1 = ProductSkill.new
 product_skill_1.product = product_1
 product_skill_1.skill = skill_1
 product_skill_1.save!
-
 product_skill_2 = ProductSkill.new
 product_skill_2.product = product_2
 product_skill_2.skill = skill_2
 product_skill_2.save!
-
 product_skill_3 = ProductSkill.new
 product_skill_3.product = product_3
 product_skill_3.skill = skill_3
 product_skill_3.save!
-
 product_skill_4 = ProductSkill.new
 product_skill_4.product = product_4
 product_skill_4.skill = skill_4
 product_skill_4.save!
-
 product_skill_5 = ProductSkill.new
 product_skill_5.product = product_5
 product_skill_5.skill = skill_5
 product_skill_5.save!
-
 product_skill_6 = ProductSkill.new
 product_skill_6.product = product_6
 product_skill_6.skill = skill_6
 product_skill_6.save!
-
-
 booking_1 = Booking.new(status: true)
 booking_1.product = product_1
 booking_1.user = user_3
 booking_1.save
-
 booking_2 = Booking.new
 booking_2.product = product_2
 booking_2.user = user_3
 booking_2.save
-
-
-
-
 p "Seed done"

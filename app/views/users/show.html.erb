@@ -1,32 +1,26 @@
-<h1>current_user.name</h1>
+<h1><%= current_user.email %></h1>
 
-<img src="https://www.biography.com/.image/ar_1:1%2Cc_fill%2Ccs_srgb%2Cg_face%2Cq_auto:good%2Cw_300/MTE5NTU2MzE2NDE4MzExNjkx/jackie-chan-9542080-1-402.jpg">
+<%= cl_image_tag current_user.photo, height: 100, width: 200, crop: :fill %>
+
 
 <h3>Your Human's Bookings</h3>
 <%= link_to "Add a Human", new_product_path %>
 
-<ul>
-  <% current_user.products.each do |product| %>
-  <li>
-    <%= product.photo %>
-    <%= product.name %>
-    <%= product.bookings.startdate %>
-    <%= product.bookings.enddate %>
-    <%= product.bookings.status %>
-    <%= link_to 'Confirm booking', edit_booking_path(@booking), method: :patch %>
-  </li>
-  <% end %>
-</ul>
+<% current_user.products.each do |product| %>
+  <div>
+    <%= cl_image_tag product.photo, height: 300, width: 400, crop: :fill %>
+    <ul>
+      <li><%= product.name %></li>
+      <% product.bookings.each do |booking| %>
+        <li>Status : <%= product.bookings[0].status %></li>
+        <li>
+          Dates:
+          <%= product.bookings[0].startdate %> to <%= product.bookings[0].enddate %>
+        </li>
+        <%= link_to 'Confirm booking', edit_booking_path(booking) %>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
 
-<h3>Your Human requests</h3>
-<ul>
-  <% current_user.bookings.each do |product| %>
-    <li>
-      <%= product.photo %>
-      <%= product.name %>
-      <!--  <%= product.bookings.status %>
-            <%= product.bookings.startdate %>
-            <%= product.bookings.enddate %> -->
-    </li>
-  <% end %>
-</ul>
+

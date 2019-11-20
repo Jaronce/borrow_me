@@ -11,24 +11,26 @@ class BookingsController < ApplicationController
     @booking.user = current_user
     if @booking.save
       flash[:notice] = "Thank you for booking me!"
-      redirect_to user_path(current_user)
+      redirect_to users_show_path
     else
       render :new
     end
   end
 
-
   def edit
-    @booking = Booking.find(params[:booking_id])
+    @booking = Booking.find(params[:id])
   end
 
   def update
-    @booking = Booking.find(params[:booking_id])
+    @booking = Booking.find(params[:id])
+    @booking.update(booking_params)
+    redirect_to users_show_path
+
 
   end
 
   private
   def booking_params
-    params.require(:booking).permit(:status, :startdate, :enddate, :product_id)
+    params.require(:booking).permit(:status, :startdate, :enddate, :product_id, :user_id)
   end
 end

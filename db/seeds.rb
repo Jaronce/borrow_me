@@ -29,8 +29,7 @@ skill_4 = Skill.create!(name: "dancing", remote_photo_url: "https://images.unspl
 skill_5 = Skill.create!(name: "driving", remote_photo_url: "https://images.unsplash.com/photo-1550517636-ad7bac40dc28?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80")
 skill_6 = Skill.create!(name: "language", remote_photo_url: "https://images.unsplash.com/photo-1555424681-b0ecf4fe19a5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=967&q=80")
 skill_7 = Skill.create!(name: "clubbing", remote_photo_url: "https://images.unsplash.com/photo-1496337589254-7e19d01cec44?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80")
-skill_8 = Skill.create!(name: "coding", remote_photo_url: "https://images.unsplash.com/photo-1557853197-aefb550b6fdc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=675&q=80
-")
+skill_8 = Skill.create!(name: "coding", remote_photo_url: "https://images.unsplash.com/photo-1557853197-aefb550b6fdc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=675&q=80")
 
 product_skill_1 = ProductSkill.new
 product_skill_1.product = product_1

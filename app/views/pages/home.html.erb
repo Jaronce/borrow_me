@@ -84,20 +84,23 @@
 </div>
 
 
+
+
+
+
 <div class="container">
   <h3> Skill you can choose </h3>
 <!--     <div class="col-lg-4"> -->
       <div class="cards-cat">
         <% @skills.each do |skill| %>
           <%= link_to products_path(skill: skill.name) do %>
-            <div class="cards-cat-sub" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3))">
+            <div class="cards-cat-sub" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= cl_image_path skill.photo %>)">
               <p><%= skill.name.capitalize %></p>
             </div>
           <% end %>
         <% end %>
       </div>
     </div>
-  <!-- </div> -->
 </div>
 
 

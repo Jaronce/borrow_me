@@ -1,0 +1,10 @@
+#circle_img {
+  object-fit: cover;
+  border-radius: 50%;
+  width :200px;
+  height :200px;
+  margin : 20 auto;
+  background-size: 100%;
+  transition-duration: 0.3s;
+  cursor: pointer;
+}

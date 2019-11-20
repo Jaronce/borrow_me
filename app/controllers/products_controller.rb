@@ -4,6 +4,7 @@ class ProductsController < ApplicationController
   def index
     # @products = Product.all
     @products = Skill.find_by(name: params[:skill]).products
+    @skill = Skill.find_by(name: params[:skill])
   end
 
   def show

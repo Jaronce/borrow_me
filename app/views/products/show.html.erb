@@ -1,3 +1,4 @@
+
 <div class="container-fluid">
   <h1><%= @product.name %></h1>
   <div class="row">
@@ -20,7 +21,15 @@
       <div class="product-attribute d-flex justify-content-between">
         <p><strong>City</strong></p>
         <p><%= @product.city %></p>
-      </div>
+      <p>
+        <% if (@product.gender == "male") %>
+          <i class="fas fa-mars"></i>
+        <% else  %>
+          <i class="fas fa-venus"></i>
+        <% end %>
+      </p>
+    </div>
+      
       <hr>
       <div class="product-attribute d-flex justify-content-between">
         <p><strong>Released</strong></p>
@@ -36,10 +45,15 @@
   </div>
 </div>
 
-
-
-
 <%= link_to "hidden", new_product_booking_path(@product), id: "product-booking-new", style: "display: none;" %>
+
+  <div
+    id="map"
+    style="width: 100%;
+    height: 600px;"
+    data-markers="<%= @markers.to_json %>"
+    data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
+  ></div>
 
 
 

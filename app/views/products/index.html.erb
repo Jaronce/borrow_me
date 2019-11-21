@@ -1,34 +1,44 @@
-<div class="container">
 
- <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= cl_image_path @skill.photo %>)">
+ <div class="card-top" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= cl_image_path @skill.photo %>)">
   <%= params[:skill].capitalize %>
-</div>
+ </div>
 
-
- <div class="card-product">
-    <h2><%= params[:skill].capitalize %></h2>
+<div class="container">
+   <div
+    id="map"
+    style="width: 100%;
+    height: 600px;"
+    data-markers="<%= @markers.to_json %>"
+    data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
+  ></div>
+   <div class="card-skills-grid">
     <% @products.each do |product| %>
-      <div class="card-product">
+      <div class="bm-card-product">
         <%= cl_image_tag(product.photo) %>
-        <div class="card-product">
-    <p class="name"><%= product.name  %>
-    <% if (product.gender == "male") %>
-      <i class="fas fa-mars"></i>
-      <% else  %>
-      <i class="fas fa-venus"></i>
-    <% end %>
-    </p>
-    <p>City: <%= product.city  %></p>
-    <p>Price: $<%= product.price  %></p>
-    <%= link_to "Book now", product_path(product), class: "btn btn-flat" %>
+        <div class="bm-card-product-info">
+          <div>
+            <p class="name"><%= product.name  %>
+              <% if (product.gender == "male") %>
+              <i class="fas fa-mars"></i>
+            <% else  %>
+              <i class="fas fa-venus"></i>
+            <% end %>
+            </p>
+            <p><%= product.city  %></p>
+            <p>$<%= product.price  %> /hour</p>
+          </div>
+          <div>
+            <%= link_to "Book now", product_path(product), class: "btn btn-primary btn-absolute" %>
+          </div>
         </div>
       </div>
+    <% end %>
 
-      <% end %>
   </div>
-</div>
 
 </div>
+
+
 
 
 

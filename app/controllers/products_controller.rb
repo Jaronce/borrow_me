@@ -1,14 +1,28 @@
 class ProductsController < ApplicationController
-#READ-------------------------------------------
 
   def index
     # @products = Product.all
     @products = Skill.find_by(name: params[:skill]).products
     @skill = Skill.find_by(name: params[:skill])
+
+    @products_address = @products.geocoded
+
+    @markers = @products_address.map do |product|
+      {
+        lat: product.latitude,
+        lng: product.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { product: product })
+      }
+    end
   end
 
   def show
     @product = Product.find(params[:id])
+    @markers = [{
+        lat: @product.latitude,
+        lng: @product.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { product: @product })
+      }]
   end
 
 #CREATE-----------------------------------------

@@ -2,89 +2,97 @@
 <% womens = @products.where({gender: "female"}).first(3) %>
 
 <div class="banner-container">
-<div class="skw-pages">
-  <div class="skw-page skw-page-1 active">
-    <div class="skw-page__half skw-page__half--left">
-      <div class="skw-page__skewed">
-        <div class="skw-page__content"></div>
+  <div class="skw-pages">
+    <div class="skw-page skw-page-1 active">
+      <div class="skw-page__half skw-page__half--left">
+        <div class="skw-page__skewed">
+          <div class="skw-page__content"></div>
+        </div>
       </div>
-    </div>
-    <div class="skw-page__half skw-page__half--right">
-      <div class="skw-page__skewed">
-        <div class="skw-page__content">
-          <h2 class="skw-page__heading">Rent someone</h2>
-          <p class="skw-page__description">Change your life</p>
+      <div class="skw-page__half skw-page__half--right">
+        <div class="skw-page__skewed">
+          <div class="skw-page__content">
+
+            <% if user_signed_in? %>
+              <div class="container_main">
+                <h2 class="skw-page__heading"> Hello, <%= current_user.email.split("@").first %> </h2>
+                <h2>rent someone today!</h2>
+                <p class="skw-page__description">Change your life</p>
+              </div>
+            <% else %>
+              <h2 class="skw-page__heading"> Rent someone today</h2>
+              <p class="skw-page__description">Change your life</p>
+            <% end %>
+
+
+
+          </div>
         </div>
       </div>
     </div>
-  </div>
-  <div class="skw-page skw-page-2">
-    <div class="skw-page__half skw-page__half--left">
-      <div class="skw-page__skewed">
-        <div class="skw-page__content">
-          <h2 class="skw-page__heading">Cooking</h2>
-          <p class="skw-page__description">Taste the World</p>
+    <div class="skw-page skw-page-2">
+      <div class="skw-page__half skw-page__half--left">
+        <div class="skw-page__skewed">
+          <div class="skw-page__content">
+            <h2 class="skw-page__heading">Cooking</h2>
+            <p class="skw-page__description">Taste the World</p>
+          </div>
+        </div>
+      </div>
+      <div class="skw-page__half skw-page__half--right">
+        <div class="skw-page__skewed">
+          <div class="skw-page__content"></div>
         </div>
       </div>
     </div>
-    <div class="skw-page__half skw-page__half--right">
-      <div class="skw-page__skewed">
-        <div class="skw-page__content"></div>
+    <div class="skw-page skw-page-3">
+      <div class="skw-page__half skw-page__half--left">
+        <div class="skw-page__skewed">
+          <div class="skw-page__content"></div>
+        </div>
       </div>
-    </div>
-  </div>
-  <div class="skw-page skw-page-3">
-    <div class="skw-page__half skw-page__half--left">
-      <div class="skw-page__skewed">
-        <div class="skw-page__content"></div>
-      </div>
-    </div>
-    <div class="skw-page__half skw-page__half--right">
-      <div class="skw-page__skewed">
-        <div class="skw-page__content">
-          <h2 class="skw-page__heading">Talents</h2>
-          <p class="skw-page__description">Learn to Sing, Dance and Do Anything!</p>
+      <div class="skw-page__half skw-page__half--right">
+        <div class="skw-page__skewed">
+          <div class="skw-page__content">
+            <h2 class="skw-page__heading">Talents</h2>
+            <p class="skw-page__description">Learn to Sing, Dance and Do Anything!</p>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-  <div class="skw-page skw-page-4">
-    <div class="skw-page__half skw-page__half--left">
-      <div class="skw-page__skewed">
-        <div class="skw-page__content">
-          <h2 class="skw-page__heading">Massage</h2>
-          <p class="skw-page__description">Release all the stress!</p>
+    <div class="skw-page skw-page-4">
+      <div class="skw-page__half skw-page__half--left">
+        <div class="skw-page__skewed">
+          <div class="skw-page__content">
+            <h2 class="skw-page__heading">Massage</h2>
+            <p class="skw-page__description">Release all the stress!</p>
+          </div>
+        </div>
+      </div>
+      <div class="skw-page__half skw-page__half--right">
+        <div class="skw-page__skewed">
+          <div class="skw-page__content"></div>
         </div>
       </div>
     </div>
-    <div class="skw-page__half skw-page__half--right">
-      <div class="skw-page__skewed">
-        <div class="skw-page__content"></div>
+    <div class="skw-page skw-page-5">
+      <div class="skw-page__half skw-page__half--left">
+        <div class="skw-page__skewed">
+          <div class="skw-page__content"></div>
+        </div>
       </div>
-    </div>
-  </div>
-  <div class="skw-page skw-page-5">
-    <div class="skw-page__half skw-page__half--left">
-      <div class="skw-page__skewed">
-        <div class="skw-page__content"></div>
-      </div>
-    </div>
-    <div class="skw-page__half skw-page__half--right">
-      <div class="skw-page__skewed">
-        <div class="skw-page__content">
-          <h2 class="skw-page__heading">Book Me</h2>
-          <p class="skw-page__description">
-            Change your life renting other people!</p>
+      <div class="skw-page__half skw-page__half--right">
+        <div class="skw-page__skewed">
+          <div class="skw-page__content">
+            <h2 class="skw-page__heading">Book Me</h2>
+            <p class="skw-page__description">
+              Change your life renting other people!</p>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </div>
-
-</div>
-
-
-
 
 
 
@@ -118,7 +126,6 @@
     </div>
   </div>
 </div>
-
 
 <div class="container">
   <h3> TOP 3 Girls</h3>

@@ -6,5 +6,5 @@ class Product < ApplicationRecord
 
   mount_uploader :photo, PhotoUploader
   validates :name, presence: true, uniqueness: true
-  validates :photo, presence: true
+  # validates :photo, presence: true
 end

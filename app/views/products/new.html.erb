@@ -5,7 +5,16 @@
   <%= f.input :photo %>
   <%= f.input :price %>
   <%= f.input :city %>
-  <%= f.association :skills %> <!-- need to update to product-skill -->
+  <%= f.input :gender, as: :radio_buttons, collection: ['male', 'female'] %>
+  <%# f.association :skills  %><!-- need to update to product-skill -->
+  <% @skills.each do |skill| %>
+    <div class="form-controll">
+      <%= label_tag skill.name%>
+      <%= check_box_tag "skills[#{skill.id}]" %>
+    </div>
+  <% end %>
   <%= f.input :photo_cache, as: :hidden %>
   <%= f.submit class: "btn btn-primary"%>
 <% end %>
+
+<%= link_to 'Cancel', user_path(current_user) %>

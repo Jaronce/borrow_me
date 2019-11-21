@@ -18,6 +18,15 @@
         <% @product.skills.each do |skill| %>
             <p><%= skill.name %></p>
         <% end %>
+      <p>
+        <% if (@product.gender == "male") %>
+          <i class="fas fa-mars"></i>
+        <% else  %>
+          <i class="fas fa-venus"></i>
+        <% end %>
+      </p>
+    <p>City: <%= @product.city  %></p>
+    <p>Price: $<%= @product.price  %></p>
       </div>
   </div>
   <%= render "products/rocketbutton" %>

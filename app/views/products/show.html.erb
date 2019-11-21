@@ -15,7 +15,7 @@
     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
   ></div>
 
-   <%= cl_image_tag @product.photo, height: 400, width: 400, crop: :fill%>
+  <%= cl_image_tag @product.photo, height: 400, width: 400, crop: :fill%>
   <div>
     <p>Presented by <span><%= @product.user.email %></span></p>
     <p> <i class="fas fa-map-marker"></i> <%= @product.city %></p>

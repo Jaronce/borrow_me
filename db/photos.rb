@@ -1,6 +1,4 @@
-
 # Array.from(document.querySelectorAll(".IEpfq > img")).map(e => e.getAttribute("srcset")).filter(e => e).map(e => e.match(/400w, (.*) 500/)[1])
-
 
 @women_photos = [
 "https://images.unsplash.com/photo-1527008527515-d18557de1589?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60",
@@ -45,8 +43,6 @@
 ]
 
 @women_photos = @women_photos.uniq
-
-
 
 
 @men_photos =[
@@ -95,6 +91,5 @@
 "https://images.unsplash.com/photo-1484688493527-670f98f9b195?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60",
 "https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"
 ]
-
 
 @men_photos = @men_photos.uniq

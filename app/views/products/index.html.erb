@@ -7,7 +7,7 @@
    <div
     id="map"
     style="width: 100%;
-    height: 600px;"
+    height: 300px;"
     data-markers="<%= @markers.to_json %>"
     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
   ></div>
@@ -24,8 +24,8 @@
               <i class="fas fa-venus"></i>
             <% end %>
             </p>
-            <p><%= product.city  %></p>
-            <p>$<%= product.price  %> /hour</p>
+            <p><i class="fas fa-city"></i><%= product.city  %></p>
+            <p><i class="fas fa-donate"></i><%= product.price  %> /hour</p>
           </div>
           <div>
             <%= link_to "Book now", product_path(product), class: "btn btn-primary btn-absolute" %>

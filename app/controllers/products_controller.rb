@@ -49,10 +49,8 @@ class ProductsController < ApplicationController
 #DESTROY----------------------------------------
   def destroy
     @product = Product.find(params[:id])
-    @product.skills.delete_all
-    @product.delete
-
-    redirect_to user_path(current_user)
+    # @product.skills.delete_all
+    @product.destroy
   end
 #EXTRA------------------------------------------
   private

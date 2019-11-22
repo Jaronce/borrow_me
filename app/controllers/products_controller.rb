@@ -50,7 +50,14 @@ class ProductsController < ApplicationController
   def destroy
     @product = Product.find(params[:id])
     # @product.skills.delete_all
-    @product.destroy
+    if @product.destroy
+      respond_to do |format|
+        format.html { redirect_to user_path current_user }
+        format.js  # <-- will render `app/views/reviews/create.js.erb`
+      end
+    else
+      head :no_content
+    end
   end
 #EXTRA------------------------------------------
   private

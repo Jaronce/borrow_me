@@ -59,6 +59,7 @@
         }
     }
     .default {
+        margin-left: calc(50% - 52px);
         position: relative;
         display: flex;
         &:before {

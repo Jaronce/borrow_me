@@ -10,7 +10,10 @@
       <div class="text-right">
         <p class="product-price"><%= @product.price %>$/year</p>
       </div>
-      <%= render "products/rocketbutton" %>
+      <div id="booking-new-container">
+        <%= render "bookings/form", product: @product, booking: @booking %>
+      </div>
+      <%#= render "products/rocketbutton" %>
       <button> rate me!</button>
       <ul class="product-skill-list">
         <% @product.skills.each do |skill| %>
@@ -29,7 +32,7 @@
         <% end %>
       </p>
     </div>
-      
+
       <hr>
       <div class="product-attribute d-flex justify-content-between">
         <p><strong>Released</strong></p>
@@ -45,7 +48,7 @@
   </div>
 </div>
 
-<%= link_to "hidden", new_product_booking_path(@product), id: "product-booking-new", style: "display: none;" %>
+<%#= link_to "hidden", new_product_booking_path(@product), id: "product-booking-new", style: "display: none;" %>
 
   <div
     id="map"

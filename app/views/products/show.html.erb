@@ -11,7 +11,9 @@
         <p class="product-price"><%= @product.price %>$/year</p>
       </div>
       <%= render "products/rocketbutton" %>
-      <button> rate me!</button>
+      <div class="rate-me-button">
+        <button> rate me!</button>
+      </div>
       <ul class="product-skill-list">
         <% @product.skills.each do |skill| %>
           <li><%= skill.name %></li>

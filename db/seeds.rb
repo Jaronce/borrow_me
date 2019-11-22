@@ -1,6 +1,6 @@
 $LOAD_PATH << File.join(Rails.root + 'db/photos.rb')
-$LOAD_PATH << File.join(Rails.root + 'db/address.rb')
 require_relative 'photos.rb'
+$LOAD_PATH << File.join(Rails.root + 'db/address.rb')
 require_relative 'address.rb'
 require 'faker'
 
@@ -79,9 +79,6 @@ products.first(3).each do |product|
   booking.user = user
   booking.save!
 end
-
-
-
 
 
 p "Seed done :D Let's check the page"

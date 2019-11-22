@@ -15,4 +15,21 @@ class Product < ApplicationRecord
     self.latitude = 45.5017 + (rand / 100)
     self.longitude = -73.5673 + (rand / 100)
   end
+
+
+  def fake_address
+    address = [
+      "2 Cemetery St. Laurentides-Sud",
+      "57 Mulberry St. Ponoka",
+      "67 Henry Smith Court Taber",
+      "8519 Beaver Ridge Ave, QC",
+      "860 Sunset Drive Orillia",
+      "99 College Road Florenceville",
+      "341 South St Paul St. Région",
+      "919 South Brook Ave. Kimberley",
+      "9806 Old York Street Kings, QC",
+      "95 Van Dyke Dr. Tour de la Bours"
+    ]
+    return address.sample(1).join(" ")
+  end
 end

@@ -1,0 +1,8 @@
+<%= simple_form_for([product, booking], remote: true) do |f| %>
+  <%= f.input :startdate, as: :date, html5: true %>
+  <%= f.input :enddate, as: :date, html5: true %>
+  <%= f.submit "", style: "display: none;", id: "product-booking-create" %>
+<% end %>
+
+<%= render "products/rocketbutton" %>
+

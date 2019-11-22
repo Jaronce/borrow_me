@@ -22,7 +22,7 @@ document.querySelectorAll('.rocket-button').forEach(elem => {
         elem.classList.toggle('live');
         setTimeout(() => {
             elem.classList.remove('animated');
-            const hiddenBookingCreateButton = document.querySelector("#product-booking-new");
+            const hiddenBookingCreateButton = document.querySelector("#product-booking-create");
             hiddenBookingCreateButton.click();
         }, 2400);
     });

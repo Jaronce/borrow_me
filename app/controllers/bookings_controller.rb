@@ -1,20 +1,15 @@
 class BookingsController < ApplicationController
-  def new
-    @booking = Booking.new
-    @product = Product.find(params[:product_id])
-  end
+  # def new
+  #   @booking = Booking.new
+  #   @product = Product.find(params[:product_id])
+  # end
 
   def create
-    @booking = Booking.new(booking_params)
     @product = Product.find(params[:product_id])
+    @booking = Booking.new(booking_params)
     @booking.product = @product
     @booking.user = current_user
-    if @booking.save
-      flash[:notice] = "Thank you for booking me!"
-      redirect_to users_show_path
-    else
-      render :new
-    end
+    @booking.save
   end
 
   def edit

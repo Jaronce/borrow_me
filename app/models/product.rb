@@ -9,5 +9,10 @@ class Product < ApplicationRecord
   validates :photo, presence: true
 
   geocoded_by :city
-  after_validation :geocode, if: :will_save_change_to_city?
+  after_validation :custom_geocode, if: :will_save_change_to_city?
+
+  def custom_geocode
+    self.latitude = 45.5017 + (rand / 100)
+    self.longitude = -73.5673 + (rand / 100)
+  end
 end

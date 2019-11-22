@@ -44,14 +44,20 @@ random_user = users[rand(users.length)]
 products = []
 @women_photos.each do |photo|
   # products << Product.create!(user: random_user, name: Faker::Name.unique.female_first_name, price: rand(100)*10, city: Faker::Address.city, gender: "female", remote_photo_url: photo)
-  products << Product.create!(user: random_user, name: Faker::Name.unique.female_first_name, price: rand(100)*10, city: @address.sample(1).join(" "), gender: "female", remote_photo_url: photo)
+  product = Product.create!(user: random_user, name: Faker::Name.unique.female_first_name, price: rand(100)*10, city: @address.sample(1).join(" "), gender: "female", remote_photo_url: photo)
+  products << product
+  p [product.latitude, product.longitude]
+  # sleep(1)
 end
 
 p "we have #{products.count} products now"
 
 @men_photos.each do |photo|
   # products << Product.create!(user: random_user, name: Faker::Name.unique.male_first_name, price: rand(100)*10, city: Faker::Address.city, gender: "male", remote_photo_url: photo)
-  products << Product.create!(user: random_user, name: Faker::Name.unique.male_first_name, price: rand(100)*10, city: @address.sample(1).join(" "), gender: "male", remote_photo_url: photo)
+  product = Product.create!(user: random_user, name: Faker::Name.unique.male_first_name, price: rand(100)*10, city: @address.sample(1).join(" "), gender: "male", remote_photo_url: photo)
+  products << product
+  p [product.latitude, product.longitude]
+  # sleep(1)
 end
 p "we have #{products.count} products now"
 

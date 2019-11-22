@@ -1,7 +1,7 @@
 
 <div class="container-fluid">
 
-  <div class="row">
+  <div class="row full-page-card">
     <div class="col-8">
       <%= cl_image_tag @product.photo , class:"photo-tag"%>
     </div>
@@ -22,11 +22,14 @@
       <div>
         <button class="rate-me-button"> rate me!</button>
       </div>
-      <ul class="product-skill-list">
-        <% @product.skills.each do |skill| %>
-          <li><%= skill.name %></li>
+      <hr>
+      <div class="product-attribute d-flex justify-content-between">
+      <p><strong>Skills</strong></p>
+        <p><% @product.skills.each do |skill| %>
+          <%= skill.name %>
         <% end %>
-      </ul>
+      </p>
+      </div>
       <hr>
       <div class="product-attribute d-flex justify-content-between">
         <p><strong>City</strong></p>

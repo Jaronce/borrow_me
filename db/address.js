@@ -1,3 +1,5 @@
+import $ from 'jquery';
+
 const getAddress =() => {
 
   $.get("https://www.randomlists.com/canadian-addresses?qty=150", function( document ) {

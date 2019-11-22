@@ -4,6 +4,7 @@ require_relative 'photos.rb'
 require_relative 'address.rb'
 require 'faker'
 
+
 p "Starting seeds... it takes 1~2 mins"
 
 p "Destroy previous data"
@@ -42,15 +43,21 @@ random_user = users[rand(users.length)]
 
 products = []
 @women_photos.each do |photo|
-  products << Product.create!(user: random_user, name: Faker::Name.unique.female_first_name, price: rand(100)*10, city: Faker::Address.city, gender: "female", remote_photo_url: photo)
-  # products << Product.create!(user: random_user, name: Faker::Name.unique.female_first_name, price: rand(100)*10, city: @address.sample(1).join(" "), gender: "female", remote_photo_url: photo)
+  # products << Product.create!(user: random_user, name: Faker::Name.unique.female_first_name, price: rand(100)*10, city: Faker::Address.city, gender: "female", remote_photo_url: photo)
+  product = Product.create!(user: random_user, name: Faker::Name.unique.female_first_name, price: rand(100)*10, city: @address.sample(1).join(" "), gender: "female", remote_photo_url: photo)
+  products << product
+  p [product.latitude, product.longitude]
+  # sleep(1)
 end
 
 p "we have #{products.count} products now"
 
 @men_photos.each do |photo|
-  products << Product.create!(user: random_user, name: Faker::Name.unique.male_first_name, price: rand(100)*10, city: Faker::Address.city, gender: "male", remote_photo_url: photo)
-  # products << Product.create!(user: random_user, name: Faker::Name.unique.male_first_name, price: rand(100)*10, city: @address.sample(1).join(" "), gender: "male", remote_photo_url: photo)
+  # products << Product.create!(user: random_user, name: Faker::Name.unique.male_first_name, price: rand(100)*10, city: Faker::Address.city, gender: "male", remote_photo_url: photo)
+  product = Product.create!(user: random_user, name: Faker::Name.unique.male_first_name, price: rand(100)*10, city: @address.sample(1).join(" "), gender: "male", remote_photo_url: photo)
+  products << product
+  p [product.latitude, product.longitude]
+  # sleep(1)
 end
 p "we have #{products.count} products now"
 
@@ -63,21 +70,19 @@ products.each do |product|
   product_skill.save!
 end
 
+# p "Make johnny get Product"
 
-p "Make johnny get Product"
-products.first(2).each do |product|
-  booking = Booking.new(status: true)
+products.first(3).each do |product|
+  user = User.find_by(email: "johnny@test.com")
+  booking = Booking.new(status: "Pending")
   booking.product = product
-  booking.user = users[1]
+  booking.user = user
   booking.save!
 end
 
-products.last(2).each do |product|
-  booking = Booking.new
-  booking.product = product
-  booking.user = users[1]
-  booking.save!
-end
+
+
+
 
 p "Seed done :D Let's check the page"
 

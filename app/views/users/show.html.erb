@@ -4,11 +4,15 @@
 
 <%= cl_image_tag current_user.photo, height: 100, width: 200, crop: :fill %>
 
+<div class="profile-container">
+  <h1><%= current_user.email %></h1>
+  <%= cl_image_tag current_user.photo, height: 100, width: 200, crop: :fill %>
+</div>
 
-<h2>Your Human's</h2>
-<%= link_to "Add a Human", new_product_path, class: "btn btn-primary" %>
 
-<div>
+<div class="profile-container">
+  <h2>Your Human's</h2>
+  <%= link_to "Add a Human", new_product_path, class: "btn btn-primary" %>
   <% current_user.products.each do |product| %>
     <div>
       <%= cl_image_tag product.photo, height: 200, width: 200, crop: :fill %>
@@ -22,7 +26,9 @@
   <% end %>
 </div>
 
-<div>
+
+
+<div class = "profile-container">
   <% if @pending_bookings.length > 0 %>
     <h2>Pending Bookings</h2>
     <% @pending_bookings.each do |booking| %>
@@ -47,7 +53,8 @@
   <% end %>
 </div>
 
-<div>
+
+<div class = "profile-container">
   <h2>Confirmed Bookings</h2>
     <% @confirmed_bookings.each do |booking| %>
       <div>

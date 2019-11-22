@@ -1,10 +1,8 @@
 
 <div class="container-fluid">
-  <!--<h1><%= @product.name %></h1> -->
+
   <div class="row">
     <div class="col-8">
-      <!-- <div class="banner-full-page" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= cl_image_path @product.photo%>);">
-      </div> -->
       <%= cl_image_tag @product.photo , class:"photo-tag"%>
     </div>
     <div class="col-4 card-show-info">
@@ -16,13 +14,14 @@
             <i class="fas fa-venus"></i>
           <% end %>
         </h1>
-      
         <p class="product-price"><%= @product.price %>$/hour</p>
       </div>
-        <div id="booking-new-container">
+      <div id="booking-new-container">
         <%= render "bookings/form", product: @product, booking: @booking %>
       </div>
-      <button> rate me!</button>
+      <div>
+        <button class="rate-me-button"> rate me!</button>
+      </div>
       <ul class="product-skill-list">
         <% @product.skills.each do |skill| %>
           <li><%= skill.name %></li>
@@ -32,14 +31,7 @@
       <div class="product-attribute d-flex justify-content-between">
         <p><strong>City</strong></p>
         <p><%= @product.city %></p>
-      <!--<p>
-        <% if (@product.gender == "male") %>
-          <i class="fas fa-mars"></i>
-        <% else  %>
-          <i class="fas fa-venus"></i>
-        <% end %>
-      </p>-->
-    </div>
+      </div>
 
       <hr>
       <div class="product-attribute d-flex justify-content-between">
@@ -52,12 +44,12 @@
         <p><%= time_ago_in_words(@product.updated_at) %> ago</p>
       </div>
       <hr>
-       <div
-    id="map"
-    style="width: 200;"
-    data-markers="<%= @markers.to_json %>"
-    data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
-  ></div>
+      <div
+        id="map"
+        style="width: 200;"
+        data-markers="<%= @markers.to_json %>"
+        data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
+      ></div>
       <hr>
     </div>
   </div>

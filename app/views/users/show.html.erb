@@ -1,81 +1,148 @@
 <div class="container">
 
-<h1><%= current_user.email %></h1>
 
-<%= cl_image_tag current_user.photo, height: 100, width: 200, crop: :fill %>
-
-
-<h2>Your Human's</h2>
-<%= link_to "Add a Human", new_product_path, class: "btn btn-primary" %>
-
-<div>
-  <% current_user.products.each do |product| %>
-    <div>
-      <%= cl_image_tag product.photo, height: 200, width: 200, crop: :fill %>
-      <ul>
-        <li>
-          <%= link_to 'Details', product_path(product), class: "btn btn-primary" %>
-          <%= link_to 'Delete',  product_path(product), method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-danger" %>
-        </li>
-      </ul>
+  <div class="profile-container">
+    <div class="profile-header">
+      <h3>Hello, <%= current_user.email.split("@").first %> :)</h3>
     </div>
-  <% end %>
-</div>
+    <div class="profile-header">
 
-<div>
-  <% if @pending_bookings.length > 0 %>
-    <h2>Pending Bookings</h2>
-    <% @pending_bookings.each do |booking| %>
-      <%= cl_image_tag booking.product.photo, height: 100, width: 100, crop: :fill %>
-      <li>Status : <%= booking.status %></li>
-        <li>
-          Dates:
-          <%= booking.startdate %> to <%= booking.enddate %>
-        </li>
-        <%= simple_form_for booking do |f| %>
-        <%= f.input :status, as: :hidden, input_html: {value: "Confirmed"} %>
-        <%= f.submit "Confirm", class: "btn btn-flat" %>
-        <% end %>
-        <%= simple_form_for booking do |f| %>
-        <%= f.input :status, as: :hidden, input_html: {value: "Delcined"} %>
-        <%= f.submit "Decline", class: "btn btn-danger" %>
-        <% end %>
-      </li>
-    <% end %>
-  <% else %>
-    <h2>No Pending Bookings</h2>
-  <% end %>
-</div>
+      <%= link_to "Add a Product?", new_product_path, class: "btn btn-primary" %>
+    </div>
+  </div>
 
-<div>
-  <h2>Confirmed Bookings</h2>
-    <% @confirmed_bookings.each do |booking| %>
-      <div>
-      <%= cl_image_tag booking.product.photo, height: 100, width: 100, crop: :fill %>
-      <li>Status : <%= booking.status %></li>
-        <li>
-          Dates:
-          <%= booking.startdate %> to <%= booking.enddate %>
-        </li>
-      </li>
-      <%= link_to 'Delete',  booking_path(booking), method: :delete, class: "btn btn-danger" %>
+
+
+
+  <div class="space">
+    <hr>
+      <h2 style="text-align: center;"> <strong>Borrower</strong></h2>
+      <p style="text-align: center;"> Your Reservation Status</p>
+  </div>
+
+  <div class="profile-container">
+
+    <div class="profile-header">
+      <h3>Your Bookings You have made</h3>
+    </div>
+
+    <div class="cards-list">
+
+      <% @bookings_ive_made.each do |booking| %>
+      <div class="card" >
+          <%= cl_image_tag booking.product.photo, :class => "card-img-top", height: 200, width: 200, crop: :fill %>
+        <div class = "card-body">
+          <li class="card-text">Status : <%= booking.status %></li>
+          <li class="card-text">Dates:<%= booking.startdate %> to <%= booking.enddate %></li>
+          <%= link_to 'Cancel',  booking_path(booking), method: :delete, class: "btn btn-danger" %>
+        </div>
       </div>
-    <% end %>
-</div>
+      <% end %>
+    </div>
+      </div>
+    </div>
+  </div>
 
-<div>
-  <h2>Your Bookings You have made</h2>
-  <% @bookings_ive_made.each do |booking| %>
-    <div>
-      <%= cl_image_tag booking.product.photo, height: 100, width: 100, crop: :fill %>
-      <li>Status : <%= booking.status %></li>
-        <li>
-          Dates:
-          <%= booking.startdate %> to <%= booking.enddate %>
-        </li>
-      </li>
-      <%= link_to 'Cancel',  booking_path(booking), method: :delete, class: "btn btn-danger" %>
+
+
+
+
+
+
+  <div class="space">
+    <hr>
+      <h2 style="text-align: center;"> <strong>Owner</strong></h2>
+      <p style="text-align: center;"> Your Product Status</p>
+  </div>
+
+
+
+  <div class="profile-container">
+
+    <div class="profile-header">
+      <h3>All Products</h3>
+    </div>
+    <div class="cards-list">
+    <% current_user.products.each do |product| %>
+      <div class="card">
+        <%= cl_image_tag product.photo, :class => "card-img-top", height: 200, width: 200, crop: :fill %>
+        <div class = "card-body">
+          <ul>
+            <li>
+              <%= link_to 'Details', product_path(product), class: "btn btn-primary" %>
+              <%= link_to 'Delete',  product_path(product), method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-danger" %>
+            </li>
+          </ul>
+        </div>
       </div>
     <% end %>
   </div>
+
+  </div>
+
+
+  <div class="profile-container">
+
+    <div class="profile-header">
+      <h3>Pending Bookings</h3>
+    </div>
+  <div class="cards-list">
+      <% if @pending_bookings.length > 0 %>
+        <% @pending_bookings.each do |booking| %>
+        <div class="card">
+          <%= cl_image_tag booking.product.photo, :class => "card-img-top", height: 200, width: 200, crop: :fill %>
+
+          <div class = "card-body">
+          <li>Status : <%= booking.status %></li>
+            <li>
+              Dates: <%= booking.startdate %> to <%= booking.enddate %>
+            </li>
+            <li>
+              <%= simple_form_for booking do |f| %>
+              <%= f.input :status, as: :hidden, input_html: {value: "Confirmed"} %>
+              <%= f.submit "Confirm", class: "btn btn-flat" %>
+              <% end %>
+              <%= simple_form_for booking do |f| %>
+              <%= f.input :status, as: :hidden, input_html: {value: "Delcined"} %>
+              <%= f.submit "Decline", class: "btn btn-danger" %>
+              <% end %>
+            </li>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+    </div>
+  </div>
+
+
+
+
+
+
+
+  <div class="profile-container">
+
+    <div class="profile-header">
+      <h3>Confirmed Bookings</h3>
+    </div>
+
+  <div class="cards-list">
+
+      <% @confirmed_bookings.each do |booking| %>
+        <div class="card" >
+        <%= cl_image_tag booking.product.photo, :class => "card-img-top", height: 200, width: 200, crop: :fill %>
+        <div class = "card-body">
+          <li class="card-text"> Status : <%= booking.status %></li>
+          <li class="card-text"> Dates:<%= booking.startdate %> to <%= booking.enddate %></li>
+          <%= link_to 'Delete',  booking_path(booking), method: :delete, class: "btn btn-danger" %>
+        </div>
+      </div>
+      <% end %>
+    </div>
+  </div>
+
+
+
+
+
 </div>

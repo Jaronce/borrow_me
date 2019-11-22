@@ -3,24 +3,62 @@
 <%= cl_image_tag current_user.photo, height: 100, width: 200, crop: :fill %>
 
 
-<h3>Your Human's Bookings</h3>
-<%= link_to "Add a Human", new_product_path %>
+<h2>Your Human's</h2>
+<%= link_to "Add a Human", new_product_path, class: "btn btn-primary" %>
 
-<% current_user.products.each do |product| %>
-  <div>
-    <%= cl_image_tag product.photo, height: 300, width: 400, crop: :fill %>
-    <ul>
-      <li><%= product.name %></li>
-      <% product.bookings.each do |booking| %>
-        <li>Status : <%= product.bookings[0].status %></li>
+<div>
+  <% current_user.products.each do |product| %>
+    <div>
+      <%= cl_image_tag product.photo, height: 200, width: 200, crop: :fill %>
+      <ul>
+        <li>
+          <%= link_to 'Details', product_path(product), class: "btn btn-primary" %>
+          <%= link_to 'Delete',  product_path(product), method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-danger" %>
+        </li>
+      </ul>
+    </div>
+  <% end %>
+</div>
+
+<div>
+  <% if @pending_bookings.length > 0 %>
+    <h2>Pending Bookings</h2>
+    <% @pending_bookings.each do |booking| %>
+      <%= cl_image_tag booking.product.photo, height: 100, width: 100, crop: :fill %>
+      <li>Status : <%= booking.status %></li>
         <li>
           Dates:
-          <%= product.bookings[0].startdate %> to <%= product.bookings[0].enddate %>
+          <%= booking.startdate %> to <%= booking.enddate %>
         </li>
-        <%= link_to 'Confirm booking', edit_booking_path(booking) %>
-      <% end %>
-    </ul>
-  </div>
-<% end %>
+        <%= simple_form_for booking do |f| %>
+        <%= f.input :status, as: :hidden, input_html: {value: "Confirmed"} %>
+        <%= f.submit "Confirm", class: "btn btn-flat" %>
+        <% end %>
+        <%= simple_form_for booking do |f| %>
+        <%= f.input :status, as: :hidden, input_html: {value: "Delcined"} %>
+        <%= f.submit "Decline", class: "btn btn-danger" %>
+        <% end %>
+      </li>
+    <% end %>
+  <% else %>
+    <h2>No Pending Bookings</h2>
+  <% end %>
+</div>
+
+<div>
+  <h2>Confirmed Bookings</h2>
+    <% @confirmed_bookings.each do |booking| %>
+      <div>
+      <%= cl_image_tag booking.product.photo, height: 100, width: 100, crop: :fill %>
+      <li>Status : <%= booking.status %></li>
+        <li>
+          Dates:
+          <%= booking.startdate %> to <%= booking.enddate %>
+        </li>
+      </li>
+      <%= link_to 'Delete',  booking_path(booking), method: :delete, class: "btn btn-danger" %>
+      </div>
+    <% end %>
+</div>
 
 

@@ -80,6 +80,7 @@ products.last(2).each do |product|
   booking.save!
 end
 
+
 p "Seed done"
 
 

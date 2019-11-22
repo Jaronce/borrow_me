@@ -1,11 +1,51 @@
-<%= @product.name %>
 
-
-<div class="container">
-
-  <div style="padding-bottom:70px">
-    <%= link_to "back", :back %>
+<div class="container-fluid">
+  <h1><%= @product.name %></h1>
+  <div class="row">
+    <div class="col-8">
+      <div class="banner-full-page" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= cl_image_path @product.photo%>);">
+      </div>
+    </div>
+    <div class="col-4">
+      <div class="text-right">
+        <p class="product-price"><%= @product.price %>$/year</p>
+      </div>
+      <%= render "products/rocketbutton" %>
+      <button> rate me!</button>
+      <ul class="product-skill-list">
+        <% @product.skills.each do |skill| %>
+          <li><%= skill.name %></li>
+        <% end %>
+      </ul>
+      <hr>
+      <div class="product-attribute d-flex justify-content-between">
+        <p><strong>City</strong></p>
+        <p><%= @product.city %></p>
+      <p>
+        <% if (@product.gender == "male") %>
+          <i class="fas fa-mars"></i>
+        <% else  %>
+          <i class="fas fa-venus"></i>
+        <% end %>
+      </p>
+    </div>
+      
+      <hr>
+      <div class="product-attribute d-flex justify-content-between">
+        <p><strong>Released</strong></p>
+        <p><%= time_ago_in_words(@product.created_at) %> ago</p>
+      </div>
+      <hr>
+      <div class="product-attribute d-flex justify-content-between">
+        <p><strong>Updated</strong></p>
+        <p><%= time_ago_in_words(@product.updated_at) %> ago</p>
+      </div>
+      <hr>
+    </div>
   </div>
+</div>
+
+<%= link_to "hidden", new_product_booking_path(@product), id: "product-booking-new", style: "display: none;" %>
 
   <div
     id="map"
@@ -15,22 +55,6 @@
     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
   ></div>
 
-   <%= cl_image_tag @product.photo, height: 400, width: 400, crop: :fill%>
-  <div>
-    <p>Presented by <span><%= @product.user.email %></span></p>
-    <p> <i class="fas fa-map-marker"></i> <%= @product.city %></p>
-    <span><i class="fas fa-clock"></i> <%= @product.price %>$/hour</span>
-
-      <div class="skills-description">
-        <h4>SkillSets</h4>
-        <% @product.skills.each do |skill| %>
-            <p><%= skill.name %></p>
-        <% end %>
-      </div>
-  </div>
-  <%= render "products/rocketbutton" %>
-  <%= link_to "hidden", new_product_booking_path(@product), id: "product-booking-new", style: "display: none;" %>
-</div>
 
 
 

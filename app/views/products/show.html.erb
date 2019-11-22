@@ -1,19 +1,27 @@
 
 <div class="container-fluid">
-  <h1><%= @product.name %></h1>
+  <!--<h1><%= @product.name %></h1> -->
   <div class="row">
     <div class="col-8">
-      <div class="banner-full-page" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= cl_image_path @product.photo%>);">
-      </div>
+      <!-- <div class="banner-full-page" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= cl_image_path @product.photo%>);">
+      </div> -->
+      <%= cl_image_tag @product.photo , class:"photo-tag"%>
     </div>
-    <div class="col-4">
-      <div class="text-right">
-        <p class="product-price"><%= @product.price %>$/year</p>
+    <div class="col-4 card-show-info">
+      <div class="product-attribute d-flex justify-content-between" style="padding-top: 20px">
+        <h1><%= @product.name %>
+          <% if (@product.gender == "male") %>
+            <i class="fas fa-mars"></i>
+          <% else  %>
+            <i class="fas fa-venus"></i>
+          <% end %>
+        </h1>
+      
+        <p class="product-price"><%= @product.price %>$/hour</p>
       </div>
-      <div id="booking-new-container">
+        <div id="booking-new-container">
         <%= render "bookings/form", product: @product, booking: @booking %>
       </div>
-      <%#= render "products/rocketbutton" %>
       <button> rate me!</button>
       <ul class="product-skill-list">
         <% @product.skills.each do |skill| %>
@@ -24,13 +32,13 @@
       <div class="product-attribute d-flex justify-content-between">
         <p><strong>City</strong></p>
         <p><%= @product.city %></p>
-      <p>
+      <!--<p>
         <% if (@product.gender == "male") %>
           <i class="fas fa-mars"></i>
         <% else  %>
           <i class="fas fa-venus"></i>
         <% end %>
-      </p>
+      </p>-->
     </div>
 
       <hr>
@@ -44,19 +52,19 @@
         <p><%= time_ago_in_words(@product.updated_at) %> ago</p>
       </div>
       <hr>
+       <div
+    id="map"
+    style="width: 200;"
+    data-markers="<%= @markers.to_json %>"
+    data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
+  ></div>
+      <hr>
     </div>
   </div>
 </div>
 
 <%#= link_to "hidden", new_product_booking_path(@product), id: "product-booking-new", style: "display: none;" %>
 
-  <div
-    id="map"
-    style="width: 100%;
-    height: 600px;"
-    data-markers="<%= @markers.to_json %>"
-    data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
-  ></div>
 
 
 

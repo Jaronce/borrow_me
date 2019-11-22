@@ -1,0 +1,60 @@
+.profile-container {
+  background-color: white;
+  margin: 30px;
+  padding: 10px;
+  display: block;
+  border-radius: 20px;
+
+  .cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+
+  .card{
+    width: 300px;
+    margin: 4px;
+  }
+
+  h1 h2 {
+    color: #222831;
+  }
+
+}
+
+.space {
+  margin : 70px;
+  hr {
+    margin : 50px 30px;
+  }
+}
+
+
+
+.profile-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.cards-list{
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  margin-left: 50px;
+  margin-bottom: 30px;
+  margin-top: 10px;
+}
+
+.card-body {
+  // display: flex;
+  // justify-content: center;
+  // align-items: center;
+}
+
+
+li {
+    list-style-type: none;
+}

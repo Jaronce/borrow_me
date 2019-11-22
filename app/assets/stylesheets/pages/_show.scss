@@ -24,9 +24,9 @@
   /* margin: 5px; */
   margin-top: 5px;
   color: white;
-  border-radius: 25px;
+  border-radius: 28px;
   background-color: black;
-  padding: 8px;
+  padding: 12px;
 }
 #map {
   background: white;
@@ -37,15 +37,22 @@
     min-height: 300px;
 }
 .product-attribute {
-  padding-bottom: 20px;
+  padding-bottom: 0px;
 }
 .photo-tag {
   width: 100%;
   border-radius: 20px;
-  padding-top: 25px;
+  padding-top: 0px;
+  margin-top: 25px
 }
 .card-show-info {
   background-color: white;
   border-radius: 20px;
   margin-top: 25px;
+}
+
+.full-page-card {
+  background-color: white;
+  margin: 50px;
+  border-radius: 25px;
 }

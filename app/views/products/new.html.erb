@@ -1,20 +1,43 @@
 <div class="container">
-  <h1>New Human!</h1>
+  <div class="new-create-page mx-auto">
+    <div class="new-create-title">
+      <h1><strong>New Human!</strong></h1>
+    </div>
 
-  <%= simple_form_for(@product) do |f| %>
-    <%= f.input :name%>
-    <%= f.input :photo %>
-    <%= f.input :price %>
-    <%= f.input :city %>
-    <%= f.input :gender, as: :radio_buttons, collection: ['male', 'female']%>
-    <%#= f.association :skills  %>
-    <% @skills.each do |skill| %>
-      <div class="form-controll">
-        <%= label_tag skill.name%>
-        <%= check_box_tag "skills[#{skill.id}]" %>
+    <%= simple_form_for(@product) do |f| %>
+      <%= f.input :name%>
+      <%= f.input :photo %>
+      <%= f.input :price %>
+      <%= f.input :city %>
+      <%= f.input :gender, as: :radio_buttons, collection: ['male', 'female']%>
+      <hr>
+      <%#= f.association :skills  %>
+      <div class="skills-name-new-page">
+        <h2><strong>Skills</strong></h2>
+      </div>
+      <hr>
+      <div class="d-flex justify-content-around">
+        <div>
+          <% @skills.first(4).each do |skill| %>
+            <div class="form-controll">
+              <%= check_box_tag "skills[#{skill.id}]" %>
+              <%= label_tag skill.name%>
+            </div>
+          <% end %>
+        </div>
+        <div>
+          <% @skills.last(4).each do |skill| %>
+            <div class="form-controll">
+              <%= check_box_tag "skills[#{skill.id}]" %>
+              <%= label_tag skill.name%>
+            </div>
+          <% end %>
+        </div>
+      </div>
+      <%= f.input :photo_cache, as: :hidden %>
+      <div class="new-create-cancel-button justify-content-between" style="text-align: center;">
+        <%= f.submit class: "btn btn-primary"%> <%= link_to 'Cancel', user_path(current_user), class: "btn btn-danger" %>
       </div>
     <% end %>
-    <%= f.input :photo_cache, as: :hidden %>
-    <%= f.submit class: "btn btn-primary"%> <%= link_to 'Cancel', user_path(current_user), class: "btn btn-danger" %>
-  <% end %>
+  </div>
 </div>

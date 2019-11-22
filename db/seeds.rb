@@ -4,9 +4,7 @@ require_relative 'photos.rb'
 require_relative 'address.rb'
 require 'faker'
 
-
 p "Starting seeds... it takes 1~2 mins"
-
 
 p "Destroy previous data"
 Product.destroy_all
